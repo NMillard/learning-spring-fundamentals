@@ -1,0 +1,9 @@
+type Application {
+    id: ID!
+    name: String!
+    description!
+}
+
+type Query {
+    findAllApplications: [Application]!
+}
