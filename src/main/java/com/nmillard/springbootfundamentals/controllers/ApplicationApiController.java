@@ -14,16 +14,15 @@ import java.util.List;
 @RequestMapping("api/application")
 public class ApplicationApiController {
 
-    private ApplicationRepository repository;
+    private final ApplicationRepository repository;
 
     public ApplicationApiController(ApplicationRepository repository) {
-
         this.repository = repository;
     }
 
     @GetMapping
     public ResponseEntity<List<Application>> getApplications() {
-        var all = (List<Application>) repository.findAll();
+        List<Application> all = (List<Application>) repository.findAll();
         return new ResponseEntity<>(all, HttpStatus.OK);
     }
 }
